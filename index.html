@@ -4,10 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/lib/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Hello, world!</title>
+    <title>uberShame</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
 
     <div class="modal fade" id="initModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -16,6 +15,12 @@
             <h5 class="modal-title" id="staticBackdropLabel">Welcome</h5>
           </div>
           <div class="modal-body">
+            <p>uberShame is a simple static webpage for helping you visualising your uberEats habits.</p>
+            <p>To continue, you will need to ask Uber for a copy of your data, <a href="https://myprivacy.uber.com/privacy/exploreyourdata/download" target="_blank">you can do this here</a></p>
+            <p>This process can take up to 24 hours, once done you will receive an email with a link to your data in a .zip file.</p>
+            <p>Unzip this file and navigate into the "Uber Data > Eats" folder, you will need to use the two buttons below to upload both "eats_order_details.csv" and "eats_restaurant_names.csv" files.</p>
+            <p>Once done, click the "Process" button and your data visulation wil be ready.</p>
+            <p><strong>Privacy notice: </strong>None of your data will be sent anywhere, all the processing is done in your browser. The source code of this web apllication is available on <a href="https://github.com/eviltartiflette/uberShame" target="_blank">GitHub</a></p>
             <button type="button" class="btn btn-primary" id="orderSheetUploadButton">eats_order_details.csv</button>
             <input type="file" id="orderSheetFile" style="display:none">
             <button type="button" class="btn btn-primary" id="restaurantSheetUploadButton">eats_restaurant_names.csv</button>
