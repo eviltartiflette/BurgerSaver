@@ -13,21 +13,27 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <h5 class="modal-title" id="staticBackdropLabel">Welcome</h5>
           </div>
           <div class="modal-body">
-            ...
+            <button type="button" class="btn btn-primary" id="orderSheetUploadButton">eats_order_details.csv</button>
+            <input type="file" id="orderSheetFile" style="display:none">
+            <button type="button" class="btn btn-primary" id="restaurantSheetUploadButton">eats_restaurant_names.csv</button>
+            <input type="file" id="restaurantSheetFile" style="display:none">
+            <br>
+            <a id="modalError" style="color: red;"></a>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Understood</button>
+            <button type="button" class="btn btn-primary" id="processButton">Process</button>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="/lib/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="/lib/chart.min.js" integrity="sha512-O2fWHvFel3xjQSi9FyzKXWLTvnom+lOYR/AUEThL/fbP4hv1Lo5LCFCGuTXBRyKC4K4DJldg5kxptkgXAzUpvA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/lib/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/lib/bootstrap.bundle.min.js"></script>
+    <script src="/lib/chart.min.js"></script>
+    <script src="/lib/jquery-3.6.0.min.js"></script>
+    <script src="/lib/jquery.csv.min.js"></script>
     <script src="/js/compute.js"></script>
     <script src="/js/index.js"></script>
   </body>
