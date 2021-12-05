@@ -15,7 +15,13 @@ function graphMonthlyCount(monthly){
         const config = {
         type: 'bar',
         data: data,
-        options: {}
+        options: {
+            plugins:{
+                legend:{
+                    display: false
+                }
+            }
+        }
         };
 
         const myChart = new Chart(
@@ -42,7 +48,13 @@ function graphMonthlyBill(monthly){
         const config = {
         type: 'bar',
         data: data,
-        options: {}
+        options: {
+            plugins:{
+                legend:{
+                    display: false
+                }
+            }
+        }
         };
 
         const myChart = new Chart(
