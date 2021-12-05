@@ -107,7 +107,10 @@ function refreshProcessButton(){
 }
 
 function handleProcessButton(){
-    //initModal.toggle()
+    const monthly = compute_monthly(userData.orders)
+    graphMonthlyCount(monthly)
+    graphMonthlyBill(monthly)
+    initModal.toggle()
 }
 
 function init(){
