@@ -107,14 +107,11 @@ function refreshProcessButton(){
 }
 
 function handleProcessButton(){
-    alert('ok')
+    //initModal.toggle()
 }
 
 function init(){
     processButton.disabled = true
-    const initModal = new bootstrap.Modal(document.getElementById('initModal'), {
-        keyboard: false
-    })
     initModal.toggle()
 }
 
@@ -125,6 +122,8 @@ const orderSheetFileSelect = document.getElementById('orderSheetFile')
 const restaurantSheetFileSelect = document.getElementById('restaurantSheetFile')
 
 const processButton = document.getElementById('processButton')
+
+const initModal = new bootstrap.Modal(document.getElementById('initModal'), {keyboard: false})
 
 orderSheetUploadButton.addEventListener('click', handleOrderSheetButton)
 orderSheetFileSelect.addEventListener('change', handleOrderSheetUpload)
