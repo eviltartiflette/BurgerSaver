@@ -95,7 +95,6 @@ function graphOrdersPrice(ordersPrice){
 }
 
 function tableTopItems(topItems){
-    console.log(topItems)
     let table = document.getElementById('tableTopItems')
     let tableLength = 10
     if (topItems.length < 11) {
