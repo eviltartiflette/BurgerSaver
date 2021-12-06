@@ -8,12 +8,38 @@
   </head>
   <body>
 
-    <div>
-      <canvas id="monthlyCountChart"></canvas>
+    <div class="container">
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item</th>
+            <th scope="col">Restaurant</th>
+            <th scope="col">Count</th>
+          </tr>
+        </thead>
+        <tbody id="tableTopItems">
+        </tbody>
+      </table>
     </div>
 
-    <div>
-      <canvas id="monthlyBillChart"></canvas>
+    <div class="container">
+      <h3>Monthly orders count</h3>
+      <canvas id="monthlyCountChart" style="max-height: 400px;"></canvas>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <h3>Monthly bill</h3>
+      <canvas id="monthlyBillChart" style="max-height: 400px;"></canvas>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <h3>Order price</h3>
+      <canvas id="ordersPrice" style="max-height: 400px;"></canvas>
     </div>
 
     <div class="modal fade" id="initModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

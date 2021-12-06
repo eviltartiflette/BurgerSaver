@@ -46,3 +46,60 @@ function compute_monthly(orders){
 
     return collection
 }
+
+function compute_orderPrice(orders){
+    let uniqueOrders = [];
+    let orderIDs = [];
+    for (let i = 0; i < orders.length; i++) {
+        if(!orderIDs.includes(orders[i]['Order ID'])){
+            let thisOrder = orders[i];
+            orderIDs.push(thisOrder['Order ID'])
+            thisOrder.dateSimple = thisOrder['Order Time'].split(' ')[0]
+            uniqueOrders.unshift(thisOrder);
+        }
+    }
+    const collection = uniqueOrders.map(x=>{
+        return {
+            "date": x.dateSimple,
+            "price": x['Order Price']
+        }
+    })
+    return collection
+}
+
+function compute_tableTopItems(orders,restaurants){
+    let uniqueRestaurants = {}
+    for (let i = 0; i < restaurants.length; i++) {
+        uniqueRestaurants[restaurants[i]['Restaurant ID']] = restaurants[i]['Restaurant Name'].replace(/[^a-zA-Z0-9 ]/g, "")
+        
+    }
+
+    let uniqueItems = {}
+    for (let i = 0; i < orders.length; i++) {
+        const thisItem = uniqueRestaurants[orders[i]['Restaurant ID']] + '_' + orders[i]['Item Name'].replace(/[^a-zA-Z0-9 ]/g, "")
+        if (Object.keys(uniqueItems).includes(thisItem)) {
+            uniqueItems[thisItem] += 1
+        }
+        else{
+            uniqueItems[thisItem] = 1
+        }
+    }
+
+    let top = Object.keys(uniqueItems).map(x=>{
+        return {
+            'restaurant': x.split("_")[0],
+            'item': x.split("_")[1],
+            'count': uniqueItems[x]
+        }
+    })
+    top.sort((a,b)=>{
+        if (a.count < b.count) {
+            return 1;
+        }
+        if (a.count > b.count) {
+            return -1;
+        }
+        return 0;
+    })
+    return top
+}

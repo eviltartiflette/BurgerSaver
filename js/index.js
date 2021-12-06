@@ -108,8 +108,12 @@ function refreshProcessButton(){
 
 function handleProcessButton(){
     const monthly = compute_monthly(userData.orders)
+    const ordersPrice = compute_orderPrice(userData.orders)
+    const topItems = compute_tableTopItems(userData.orders, userData.restaurants)
+    graphOrdersPrice(ordersPrice)
     graphMonthlyCount(monthly)
     graphMonthlyBill(monthly)
+    tableTopItems(topItems)
     initModal.toggle()
 }
 
