@@ -212,3 +212,13 @@ function tableTopOrders(topOrders){
     }
 
 }
+
+function cardTotalSpent(total){
+    let card = document.getElementById('totalSpent')
+    card.innerText = total
+}
+
+function cardOdersCount(total){
+    let card = document.getElementById('ordersCount')
+    card.innerText = total
+}
