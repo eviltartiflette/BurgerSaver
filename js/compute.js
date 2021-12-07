@@ -195,3 +195,40 @@ function compute_tableTopOrders(orders,restaurants){
     console.log()
     return collection
 }
+
+function compute_totalSpent(orders){
+    let uniqueOrders = [];
+    let orderIDs = [];
+    for (let i = 0; i < orders.length; i++) {
+        if(!orderIDs.includes(orders[i]['Order ID'])){
+            let thisOrder = orders[i];
+            orderIDs.push(thisOrder['Order ID'])
+            thisOrder.dateSimple = thisOrder['Order Time'].split(' ')[0]
+            uniqueOrders.unshift(thisOrder);
+            thisOrder.priceParsed = Math.round(parseFloat(thisOrder['Order Price']*100))
+        }
+    }
+
+    let total = 0;
+    for (let i = 0; i < uniqueOrders.length; i++) {
+        total += uniqueOrders[i]['priceParsed']
+    }
+
+    return priceParsed/100
+}
+
+function compute_timesOrdered(orders){
+    let uniqueOrders = [];
+    let orderIDs = [];
+    for (let i = 0; i < orders.length; i++) {
+        if(!orderIDs.includes(orders[i]['Order ID'])){
+            let thisOrder = orders[i];
+            orderIDs.push(thisOrder['Order ID'])
+            thisOrder.dateSimple = thisOrder['Order Time'].split(' ')[0]
+            uniqueOrders.unshift(thisOrder);
+            thisOrder.priceParsed = Math.round(parseFloat(thisOrder['Order Price']*100))
+        }
+    }
+
+    return uniqueOrders.length
+}
