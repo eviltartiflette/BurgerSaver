@@ -128,3 +128,50 @@ function tableTopItems(topItems){
     }
 
 }
+
+function tableTopRestaurants(topRestaurants){
+    let table = document.getElementById('tableTopRestaurants')
+    let tableLength = 10
+    if (topRestaurants.length < 11) {
+        tableLength = topRestaurants.length
+    }
+
+    for (let i = 0; i < tableLength; i++) {
+        let row = document.createElement('tr')
+
+        let indexTag = document.createElement("th")
+        let indexText = document.createTextNode(i+1)
+        indexTag.appendChild(indexText)
+        row.appendChild(indexTag)
+
+        let restoTag = document.createElement("td")
+        let restoText = document.createTextNode(topRestaurants[i].name)
+        restoTag.appendChild(restoText)
+        row.appendChild(restoTag)
+
+        let maxTag = document.createElement("td")
+        let MaxText = document.createTextNode(topRestaurants[i].max)
+        maxTag.appendChild(MaxText)
+        row.appendChild(maxTag)
+
+        let avgTag = document.createElement("td")
+        let avgText = document.createTextNode(topRestaurants[i].avg)
+        avgTag.appendChild(avgText)
+        row.appendChild(avgTag)
+
+        let totalTag = document.createElement("td")
+        let totalText = document.createTextNode(topRestaurants[i].sum)
+        totalTag.appendChild(totalText)
+        row.appendChild(totalTag)
+
+        let countTag = document.createElement("td")
+        let countText = document.createTextNode(topRestaurants[i].count)
+        countTag.appendChild(countText)
+        row.appendChild(countTag)
+
+        table.appendChild(row)
+
+        console.log()
+    }
+
+}
