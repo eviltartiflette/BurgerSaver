@@ -112,6 +112,8 @@ function handleProcessButton(){
     const topItems = compute_tableTopItems(userData.orders, userData.restaurants)
     const topRestaurants = compute_tableTopRestaurants(userData.orders, userData.restaurants)
     const topOrders = compute_tableTopOrders(userData.orders, userData.restaurants)
+    const totalSpent = compute_totalSpent(userData.orders)
+    const timesOrdered = compute_timesOrdered(userData.orders)
 
     const view = document.getElementById('view')
     view.style.display = 'initial'

@@ -214,7 +214,7 @@ function compute_totalSpent(orders){
         total += uniqueOrders[i]['priceParsed']
     }
 
-    return priceParsed/100
+    return total/100
 }
 
 function compute_timesOrdered(orders){
