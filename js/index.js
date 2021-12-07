@@ -112,13 +112,19 @@ function handleProcessButton(){
     const topItems = compute_tableTopItems(userData.orders, userData.restaurants)
     const topRestaurants = compute_tableTopRestaurants(userData.orders, userData.restaurants)
     const topOrders = compute_tableTopOrders(userData.orders, userData.restaurants)
+
+    const view = document.getElementById('view')
+    view.style.display = 'initial'
+
     graphOrdersPrice(ordersPrice)
     graphMonthlyCount(monthly)
     graphMonthlyBill(monthly)
     tableTopItems(topItems)
     tableTopRestaurants(topRestaurants)
     tableTopOrders(topOrders)
+    
     initModal.toggle()
+
 }
 
 function init(){
