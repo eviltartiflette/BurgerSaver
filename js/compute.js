@@ -103,3 +103,61 @@ function compute_tableTopItems(orders,restaurants){
     })
     return top
 }
+
+function compute_tableTopRestaurants(orders,restaurants){
+    let uniqueOrders = [];
+    let orderIDs = [];
+    for (let i = 0; i < orders.length; i++) {
+        if(!orderIDs.includes(orders[i]['Order ID'])){
+            let thisOrder = orders[i];
+            orderIDs.push(thisOrder['Order ID'])
+            thisOrder.dateSimple = thisOrder['Order Time'].split(' ')[0]
+            uniqueOrders.unshift(thisOrder);
+        }
+    }
+
+    let collection = []
+    const uniqueRestaurantIDS = [...new Set(restaurants.map(x=>x['Restaurant ID']))];
+    for (let i = 0; i < uniqueRestaurantIDS.length; i++) {
+        const thisRestoID = uniqueRestaurantIDS[i]
+
+        const name = restaurants.filter(x=> x['Restaurant ID'] == thisRestoID)[0]['Restaurant Name']
+        const prices = uniqueOrders.filter(x=>x['Restaurant ID'] == thisRestoID).map(x=>parseInt(Math.round(x['Order Price'])*100))
+
+        let maxPrice = 0;
+        for (let y = 0; y < prices.length; y++) {
+            if(prices[y] > maxPrice){
+                maxPrice = prices[y]
+            }
+        }
+
+        let total = 0;
+        for (let y = 0; y < prices.length; y++) {
+            total += prices[y]
+        }
+
+        const avg = Math.round(total/prices.length)
+
+        collection.push({
+            'name': name,
+            'count': prices.length,
+            'max': maxPrice/100,
+            'avg': avg/100,
+            'sum': total/100
+        })
+
+        collection.sort((a,b)=>{
+            if(a.count < b.count){
+                return 1
+            }
+            else if(a.count > b.count){
+                return -1
+            }
+            else{
+                return 0
+            }
+        })
+    }
+
+    return collection
+}
