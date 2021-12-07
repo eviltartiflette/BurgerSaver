@@ -124,6 +124,8 @@ function handleProcessButton(){
     tableTopItems(topItems)
     tableTopRestaurants(topRestaurants)
     tableTopOrders(topOrders)
+    cardTotalSpent(totalSpent)
+    cardOdersCount(timesOrdered)
     
     initModal.toggle()
 

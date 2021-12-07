@@ -192,7 +192,6 @@ function compute_tableTopOrders(orders,restaurants){
             'price': x['Order Price']
         }
     })
-    console.log()
     return collection
 }
 
