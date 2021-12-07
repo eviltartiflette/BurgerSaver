@@ -161,3 +161,37 @@ function compute_tableTopRestaurants(orders,restaurants){
 
     return collection
 }
+
+function compute_tableTopOrders(orders,restaurants){
+    let uniqueOrders = [];
+    let orderIDs = [];
+    for (let i = 0; i < orders.length; i++) {
+        if(!orderIDs.includes(orders[i]['Order ID'])){
+            let thisOrder = orders[i];
+            orderIDs.push(thisOrder['Order ID'])
+            thisOrder.dateSimple = thisOrder['Order Time'].split(' ')[0]
+            uniqueOrders.unshift(thisOrder);
+            thisOrder.priceParsed = Math.round(parseFloat(thisOrder['Order Price']*100))
+        }
+    }
+    uniqueOrders.sort((a,b)=>{
+        if(a.priceParsed < b.priceParsed){
+            return 1
+        }
+        else if(a.priceParsed > b.priceParsed){
+            return -1
+        }
+        else{
+            return 0
+        }
+    })
+    const collection = uniqueOrders.map(x=>{
+        return {
+            'restaurant': restaurants.filter(y=>y['Restaurant ID'] ==  x['Restaurant ID'])[0]['Restaurant Name'],
+            'date': x['dateSimple'],
+            'price': x['Order Price']
+        }
+    })
+    console.log()
+    return collection
+}

@@ -111,6 +111,7 @@ function handleProcessButton(){
     const ordersPrice = compute_orderPrice(userData.orders)
     const topItems = compute_tableTopItems(userData.orders, userData.restaurants)
     const topRestaurants = compute_tableTopRestaurants(userData.orders, userData.restaurants)
+    const topOrders = compute_tableTopOrders(userData.orders, userData.restaurants)
     graphOrdersPrice(ordersPrice)
     graphMonthlyCount(monthly)
     graphMonthlyBill(monthly)
