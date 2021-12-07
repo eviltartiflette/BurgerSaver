@@ -117,6 +117,7 @@ function handleProcessButton(){
     graphMonthlyBill(monthly)
     tableTopItems(topItems)
     tableTopRestaurants(topRestaurants)
+    tableTopOrders(topOrders)
     initModal.toggle()
 }
 

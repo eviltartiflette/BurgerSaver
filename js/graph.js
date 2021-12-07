@@ -175,3 +175,40 @@ function tableTopRestaurants(topRestaurants){
     }
 
 }
+
+function tableTopOrders(topOrders){
+    let table = document.getElementById('tableTopOrders')
+    let tableLength = 10
+    if (topOrders.length < 11) {
+        tableLength = topOrders.length
+    }
+
+    for (let i = 0; i < tableLength; i++) {
+        let row = document.createElement('tr')
+
+        let indexTag = document.createElement("th")
+        let indexText = document.createTextNode(i+1)
+        indexTag.appendChild(indexText)
+        row.appendChild(indexTag)
+
+        let restoTag = document.createElement("td")
+        let restoText = document.createTextNode(topOrders[i].restaurant)
+        restoTag.appendChild(restoText)
+        row.appendChild(restoTag)
+
+        let dateTag = document.createElement("td")
+        let dateText = document.createTextNode(topOrders[i].date)
+        dateTag.appendChild(dateText)
+        row.appendChild(dateTag)
+
+        let priceTag = document.createElement("td")
+        let priceText = document.createTextNode(topOrders[i].price)
+        priceTag.appendChild(priceText)
+        row.appendChild(priceTag)
+
+        table.appendChild(row)
+
+        console.log()
+    }
+
+}
