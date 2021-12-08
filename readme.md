@@ -1,4 +1,4 @@
-You can try BurgerSaver here : [http://ubershame.s3-website-eu-west-1.amazonaws.com/](http://ubershame.s3-website-eu-west-1.amazonaws.com/)
+You can try BurgerSaver here : [http://burgersaver.s3-website-eu-west-1.amazonaws.com/](http://burgersaver.s3-website-eu-west-1.amazonaws.com/)
 
 BurgerSaver is a simple static webpage for helping you visualising your uberEats habits.
 
