@@ -131,6 +131,19 @@ function handleProcessButton(){
 
 }
 
+function handleScreenshotButton(){
+    const screenshotTarget = document.body;
+    document.getElementById('githubLogo').style.display = 'none'
+    document.getElementById('screenshotButton').style.display = 'none'
+
+    html2canvas(screenshotTarget).then((canvas) => {
+        const base64image = canvas.toDataURL("image/png");
+        download(base64image, "burgerSaver.png", "image/png");
+        document.getElementById('githubLogo').style.display = 'initial'
+        document.getElementById('screenshotButton').style.display = 'initial'
+    });
+}
+
 function init(){
     processButton.disabled = true
     initModal.toggle()
@@ -144,6 +157,8 @@ const restaurantSheetFileSelect = document.getElementById('restaurantSheetFile')
 
 const processButton = document.getElementById('processButton')
 
+const screenshotButton = document.getElementById('screenshotButton')
+
 const initModal = new bootstrap.Modal(document.getElementById('initModal'), {keyboard: false})
 
 orderSheetUploadButton.addEventListener('click', handleOrderSheetButton)
@@ -153,6 +168,8 @@ restaurantSheetUploadButton.addEventListener('click', handleRestaurantSheetButto
 restaurantSheetFileSelect.addEventListener('change', handleRestaurantSheetUpload)
 
 processButton.addEventListener('click', handleProcessButton)
+
+screenshotButton.addEventListener('click', handleScreenshotButton)
 
 $(document).ready(function () {
     init()
